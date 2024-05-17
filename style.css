@@ -9,7 +9,9 @@ a {
 	position: fixed;
 	width: 100%;
 	height: 45px;
-	background: rgb(255, 235, 235);
+	background: rgb(254, 217, 217);
+	white-space: nowrap;
+
 }
 
 #menu a {
@@ -26,9 +28,10 @@ a {
 	color: rgb(177, 155, 176);
 }
 
+
 body {
     background-image: url('background.png');
-    background-size:contain; /* Adjusts the background image size to cover the entire viewport */
+    background-size:cover; /* Adjusts the background image size to cover the entire viewport */
     background-repeat: no-repeat; /* Prevents the background image from repeating */
 	background-attachment: fixed;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -54,10 +57,11 @@ body {
 }
 
 .section-line {
+	width: 100%;
     flex: 1;
     border: none;
     border-top: 4px solid rgb(83, 64, 72); /* Adjust the color and thickness of the horizontal line */
-    margin: 0 10px; /* Adjust the margin as needed */ 
+    margin: 0 15px; /* Adjust the margin as needed */ 
 }
 
 .section-title h2 {
