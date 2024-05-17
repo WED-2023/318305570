@@ -12,14 +12,14 @@ a {
 	background: rgb(255, 235, 235);
 }
 
-#menu a{
-	float: left;
+#menu a {
+	justify-content: center; /* Centers items horizontally */
 	color: rgb(83, 64, 72);
 	text-align: center;
 	padding: 14px 16px;
+	line-height: 2.5;
 	font-size: 17px;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	
 }
 
 #menu a:hover{
