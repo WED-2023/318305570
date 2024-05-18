@@ -154,9 +154,9 @@
       <hr class="section-line">
     </div>
     <br/>
-    <!-- <div class="fb-like" data-href="https://wed-2023.github.io/318305570/"
-         data-width="" data-layout="box_count" data-action="like" data-size="large" data-share="false"></div> -->
-         <div class="fb-like" style="text-align: center; padding-left: 26%;" data-href="https://wed-2023.github.io/318305570" data-width="" data-layout="" data-action="" data-size="large" data-share="false"></div>
+    <div class="fb-like" data-href="https://wed-2023.github.io/318305570/"
+         data-width="" data-layout="box_count" data-action="like" data-size="large" data-share="false"></div>
+         <!-- <div class="fb-like" style="text-align: center; padding-left: 26%;" data-href="https://wed-2023.github.io/318305570" data-width="" data-layout="" data-action="" data-size="large" data-share="false"></div> -->
     <br/>
   </div>
 </section>
@@ -241,7 +241,7 @@
       <hr class="section-line">
     </div>
     <br />
-    <form id="contact-form" action="mailto:nettamei@post.bgu.ac.il" method="post" enctype="text/plain">
+    <form id="contact-form" onsubmit="handleFormSubmit(event)">
       <label for="email">Your Email:</label><br />
       <input type="email" id="email" name="email" required><br /><br />
       <label for="message">Message:</label><br>
@@ -256,6 +256,18 @@
     <br />
   </div>
 </section>
+
+<script>
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const subject = 'Contact from Website'; // You can customize this
+    const body = encodeURIComponent(message);
+    const mailtoLink = `mailto:nettamei@post.bgu.ac.il?subject=${subject}&body=${body}&cc=${email}`;
+    window.location.href = mailtoLink;
+  }
+</script>
 
 <script>
   // JavaScript to handle form submission
