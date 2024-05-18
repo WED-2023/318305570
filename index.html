@@ -2,22 +2,22 @@
 <html>
 
 <head>
-<title>My Grandma</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US /sdk.js#xfbml=1&version=v19.0" nonce="N9LqqsRt"></script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.tiny.cloud/1/qcqrn5eljwbds2unk6kzjaiiciyhhiixbyaj5r60boz4oy37/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-<script>
-  tinymce.init({
-    selector: "#message",
-    plugins: "emoticons",
-    toolbar: "emoticons",
-    toolbar_location: "bottom",
-    menubar: false
-  });
-</script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0" nonce="N9LqqsRt"></script>
+  <title>My Grandma</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.tiny.cloud/1/qcqrn5eljwbds2unk6kzjaiiciyhhiixbyaj5r60boz4oy37/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    tinymce.init({
+      selector: "#message",
+      plugins: "emoticons",
+      toolbar: "emoticons",
+      toolbar_location: "bottom",
+      menubar: false
+    });
+  </script>
 </head>
 
 <body>
@@ -262,14 +262,14 @@
     event.preventDefault();
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-    const subject = 'Contact from Website'; // You can customize this
+    const subject = 'Contact from Website'; // Customize this as needed
     const body = encodeURIComponent(message);
     const mailtoLink = `mailto:nettamei@post.bgu.ac.il?subject=${subject}&body=${body}&cc=${email}`;
     window.location.href = mailtoLink;
   }
 </script>
 
-<script>
+<!-- <script>
   // JavaScript to handle form submission
   document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -286,7 +286,7 @@
     // Here you would typically send the form data to your server via fetch or XMLHttpRequest
     // Replace with actual implementation to send email
   });
-</script>
+</script> -->
 
 
 <script type="text/javascript">
