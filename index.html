@@ -6,17 +6,8 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.tiny.cloud/1/qcqrn5eljwbds2unk6kzjaiiciyhhiixbyaj5r60boz4oy37/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
-    tinymce.init({
-      selector: "#message",
-      plugins: "emoticons",
-      toolbar: "emoticons",
-      toolbar_location: "bottom",
-      menubar: false
-    });
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css"/>
 </head>
 
 <body>
@@ -250,16 +241,27 @@
       <hr class="section-line">
     </div>
     <br />
-    <form id="contact-form" onsubmit="handleFormSubmit(event)">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="56c0c82b-59ba-42a3-8ef9-c69cd723c380">
       <label for="email">Your Email:</label><br />
       <input type="email" id="email" name="email" required><br /><br />
       <label for="message">Message:</label><br>
       <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
-      <!-- Emoji picker component -->
       <emoji-picker show-preview="false" show-search="true" show-category-buttons="true"></emoji-picker>
       <br><br>
       <button type="submit">Send</button>
     </form>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $("#message").emojioneArea({
+            pickerPosition: "bottom",
+            tonesStyle: "bullet"
+            });
+        });
+    </script>
     <br />
     <br />
     <br />
@@ -271,9 +273,9 @@
     event.preventDefault();
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-    const subject = 'Contact from Website'; // Customize this as needed
+    const subject = 'Contact from Website';
     const body = encodeURIComponent(message);
-    const mailtoLink = `mailto:nettamei@post.bgu.ac.il?subject=${subject}&body=${body}&cc=${email}`;
+    const mailtoLink = `mailto:nettamei@post.bgu.ac.il?subject=${encodeURIComponent(subject)}&body=${body}&cc=${encodeURIComponent(email)}`;
     window.location.href = mailtoLink;
   }
 </script>
