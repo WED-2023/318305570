@@ -3,8 +3,6 @@
 
 <head>
   <title>My Grandma</title>
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0" nonce="N9LqqsRt"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +20,8 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=436882509087499" nonce="PkYaAPmP"></script>
 <div class="content-container">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div id="menu">
@@ -155,9 +155,17 @@
       <hr class="section-line">
     </div>
     <br/>
-    <div class="fb-like" data-href="http://www.facebook.com/ise.bgu"
-         data-width="" data-layout="box_count" data-action="like" data-size="large" data-share="false"></div>
-         <!-- <div class="fb-like" style="text-align: center; padding-left: 26%;" data-href="https://wed-2023.github.io/318305570" data-width="" data-layout="" data-action="" data-size="large" data-share="false"></div> -->
+    <div id="fb-root"></div>
+    <div class="fb-like-wrapper">
+      <!-- Facebook Like button -->
+      <div class="fb-like" data-href="https://www.facebook.com/beer.sheva.muni.il" data-width="" data-layout="button" data-action="like" data-size="small" data-share="false"></div>
+      <!-- Transparent overlay button -->
+      <button class="overlay-button" onclick="window.open('https://www.facebook.com/beer.sheva.muni.il', '_blank');"></button>
+    </div>
+    
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="sOm3n0nc3"></script>
     <br/>
   </div>
 </section>
@@ -270,26 +278,6 @@
   }
 </script>
 
-<!-- <script>
-  // JavaScript to handle form submission
-  document.getElementById('contact-form').addEventListener('submit', function (event) {
-    event.preventDefault();
-    let formData = new FormData(this);
-    let message = formData.get('message');
-    // Retrieve the selected emoji from TinyMCE editor
-    let editor = tinymce.get('message');
-    if (editor) {
-      let emoji = editor.selection.getContent({ format: 'text' });
-      message += emoji; // Append emoji to message content
-    }
-    console.log("Email:", formData.get('email'));
-    console.log("Message:", message);
-    // Here you would typically send the form data to your server via fetch or XMLHttpRequest
-    // Replace with actual implementation to send email
-  });
-</script> -->
-
-
 <script type="text/javascript">
 $(function(){
   $("#nav a").click(function(e){
@@ -299,8 +287,22 @@ $(function(){
 });
 </script>
 <script type="text/javascript">
+  let isManualScroll = true;
+
   $(document).scroll(function() {
-    $('#menu').toggle($(this).scrollTop() > 1000);
+    if (isManualScroll) {
+      if ($(this).scrollTop() > 1000) {
+        $('#menu').show();
+      }
+    }
+  });
+
+  $("#menu a").click(function() {
+    isManualScroll = false;
+    $('#menu').show();
+    setTimeout(function() {
+      isManualScroll = true;
+    }, 1000); // Adjust the timeout as needed
   });
 </script>
 </div>
